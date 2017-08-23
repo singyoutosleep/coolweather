@@ -87,13 +87,11 @@ public class ChooseAreaFragment extends Fragment {
                 }else if(currentLevel == LEVEL_COUNTY){
                     String weatherId = countyList.get(position).getWeatherId();
                     if(getActivity() instanceof MainActivity){//第一次运行软件
-                        Log.e("data","if(getActivity() instanceof MainActivity)");
                         Intent intent = new Intent(getActivity(),WeatherActivity.class);
                         intent.putExtra("weather_id",weatherId);
                         startActivity(intent);
                         getActivity().finish();
                     }else if(getActivity() instanceof WeatherActivity){
-                        Log.e("data","if(getActivity() instanceof WeatherActivity)");
                         WeatherActivity activity = (WeatherActivity) getActivity();
                         activity.drawerLayout.closeDrawers();
                         activity.swipeRefresh.setRefreshing(true);
